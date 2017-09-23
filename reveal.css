@@ -1,0 +1,7 @@
+.teddyhyde p {
+    display: none;
+}
+
+.teddyhyde p:nth-child(1) {
+    display: inline-block !important;
+}
