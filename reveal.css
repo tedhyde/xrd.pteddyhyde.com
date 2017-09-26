@@ -13,3 +13,11 @@
 .teddyhyde h1:nth-child(1) {
     display: inline-block !important;
 }
+
+.teddyhyde code {
+    display: none;
+}
+
+.teddyhyde code:nth-child(1) {
+    display: inline-block !important;
+}
