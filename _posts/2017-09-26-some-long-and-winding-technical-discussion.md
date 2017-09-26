@@ -7,8 +7,6 @@ tags : []
 published: true
 ---
 
-# the idea #
-
 lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. 
 
 lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. 
