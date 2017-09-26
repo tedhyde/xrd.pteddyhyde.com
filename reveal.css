@@ -14,10 +14,10 @@
     display: inline-block !important;
 }
 
-.teddyhyde code {
+.teddyhyde pre {
     display: none;
 }
 
-.teddyhyde code:nth-child(1) {
+.teddyhyde pre:nth-child(1) {
     display: inline-block !important;
 }
