@@ -5,3 +5,11 @@
 .teddyhyde p:nth-child(1) {
     display: inline-block !important;
 }
+
+.teddyhyde h1 {
+    display: none;
+}
+
+.teddyhyde h1:nth-child(1) {
+    display: inline-block !important;
+}
