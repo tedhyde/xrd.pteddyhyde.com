@@ -4,7 +4,7 @@ category:
 title: "some long and winding technical discussion"
 tagline: 
 tags : [] 
-published: false
+published: true
 ---
 
 # the idea #
