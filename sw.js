@@ -1,11 +1,30 @@
-var CACHE_NAME = 'my-site-cache-v1';
-const applicationServerPublicKey = 'BGrr3XEuEdfMPRbzYRBtmWVl-WjLu-nNT9M1KBtFbGwxZ6sSHYqo4BP2McEXXOJkJVSoiCdBKGkUTxg0jzLf4xg';
+var CACHE_NAME = 'my-site-cache-v2';
+
 var urlsToCache = [
     '/',
     '/reveal.css',
     '/style.css',
     '/setup.js'
 ];
+
+
+function updateSubscriptionOnServer(subscription) {
+    // TODO: Send subscription to application server
+
+    const subscriptionJson = document.querySelector('.js-subscription-json');
+    const subscriptionDetails =
+	  document.querySelector('.js-subscription-details');
+
+    if (subscription) {
+	subscriptionJson.textContent = JSON.stringify(subscription);
+	subscriptionDetails.classList.remove('is-invisible');
+    } else {
+	subscriptionDetails.classList.add('is-invisible');
+    }
+}
+
+
+
 
 self.addEventListener('install', function(event) {
     // Perform install steps
