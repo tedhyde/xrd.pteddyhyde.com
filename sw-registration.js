@@ -1,3 +1,5 @@
+const applicationServerPublicKey = 'BGrr3XEuEdfMPRbzYRBtmWVl-WjLu-nNT9M1KBtFbGwxZ6sSHYqo4BP2McEXXOJkJVSoiCdBKGkUTxg0jzLf4xg';
+
 // if ('serviceWorker' in navigator) {
 //     window.addEventListener('load', function() {
 // 	navigator.serviceWorker.register('/sw.js').then(function(registration) {
@@ -11,40 +13,101 @@
 // }
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').then(function(reg) {
-    console.log('Service Worker Registered!', reg);
+    navigator.serviceWorker.register('sw.js').then(function(reg) {
+	console.log('Service Worker Registered!', reg);
+	
+	reg.pushManager.getSubscription().then(function(subscription) {
 
-    reg.pushManager.getSubscription().then(function(sub) {
-      if (sub === null) {
-        // Update UI to ask user to register for Push
-        console.log('Not subscribed to push service!');
-      } else {
-        // We have a subscription, update the database
-        console.log('Subscription object: ', sub);
-      }
-    });
-  })
-   .catch(function(err) {
-    console.log('Service Worker registration failed: ', err);
-  });
+	    isSubscribed = !(subscription === null);
+
+	    updateSubscriptionOnServer(subscription);
+
+	    if (isSubscribed) {
+		console.log('User IS subscribed.');
+	    } else {
+		console.log('User is NOT subscribed.');
+	    }
+	});
+    })
+	.catch(function(err) {
+	    console.log('Service Worker registration failed: ', err);
+	});
 }
 
+function initialiseUI() {
+
+    pushButton.addEventListener('click', function() {
+	pushButton.disabled = true;
+	if (isSubscribed) {
+	    // TODO: Unsubscribe user
+	} else {
+	    subscribeUser();
+	}
+    });
+    
+    // Set the initial subscription value
+    swRegistration.pushManager.getSubscription()
+	.then(function(subscription) {
+	    isSubscribed = !(subscription === null);
+
+	    if (isSubscribed) {
+		console.log('User IS subscribed.');
+	    } else {
+		console.log('User is NOT subscribed.');
+	    }
+
+	    updateBtn();
+	});
+}
+
+// function subscribeUser() {
+//     if ('serviceWorker' in navigator) {
+// 	navigator.serviceWorker.ready.then(function(reg) {
+	    
+// 	    reg.pushManager.subscribe({
+// 		userVisibleOnly: true
+// 	    }).then(function(sub) {
+// 		console.log('Endpoint URL: ', sub.endpoint);
+// 	    }).catch(function(e) {
+// 		if (Notification.permission === 'denied') {
+// 		    console.warn('Permission for notifications was denied');
+// 		} else {
+// 		    console.error('Unable to subscribe to push', e);
+// 		}
+// 	    });
+// 	})
+//     }
+// }
 
 function subscribeUser() {
-    if ('serviceWorker' in navigator) {
-	navigator.serviceWorker.ready.then(function(reg) {
+    const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+    swRegistration.pushManager.subscribe({
+	userVisibleOnly: true,
+	applicationServerKey: applicationServerKey
+    })
+	.then(function(subscription) {
+	    console.log('User is subscribed.');
 
-	    reg.pushManager.subscribe({
-		userVisibleOnly: true
-	    }).then(function(sub) {
-		console.log('Endpoint URL: ', sub.endpoint);
-	    }).catch(function(e) {
-		if (Notification.permission === 'denied') {
-		    console.warn('Permission for notifications was denied');
-		} else {
-		    console.error('Unable to subscribe to push', e);
-		}
-	    });
+	    updateSubscriptionOnServer(subscription);
+
+	    isSubscribed = true;
+
+	    updateBtn();
 	})
-    }
+	.catch(function(err) {
+	    console.log('Failed to subscribe the user: ', err);
+	    updateBtn();
+	});
 }
+
+
+function updateBtn() {
+    if (isSubscribed) {
+	pushButton.textContent = 'Disable Push Messaging';
+    } else {
+	pushButton.textContent = 'Enable Push Messaging';
+    }
+
+    pushButton.disabled = false;
+}
+
