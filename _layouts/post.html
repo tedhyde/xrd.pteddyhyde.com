@@ -11,6 +11,14 @@ layout: default
 
   <iframe height="400" width="100%" frameborder="0" id="th" src="https://www.teddyhyde.com/payment/xrd.teddyhyde.io"></iframe>
 
+  <script src="https://www.teddyhyde.com/bundle.js"></script>
+
+  <script>
+    TeddyHyde.onDecline( function() {
+    console.log( "Hey, we declined to pay!!!" );
+    });
+  </script>
+  
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}
   </div>
