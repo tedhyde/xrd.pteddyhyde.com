@@ -10,13 +10,40 @@ layout: default
   </div>
 
   <iframe height="400" width="100%" frameborder="0" id="th" src="https://www.teddyhyde.com/payment/xrd.teddyhyde.io"></iframe>
-
-  <script src="https://www.teddyhyde.com/bundle.js"></script>
+  <script src="https://cdn.teddyhyde.com/0.0.01/teddyhyde-client-0.0.1.js"></script>
 
   <script>
-    TeddyHyde.onDecline( function() {
-    console.log( "Hey, we declined to pay!!!" );
-    });
+    
+  function revealContent(){
+      setDisplayPs( "inline-block" );
+      document.getElementById("th").style.display = "none";
+  }
+
+  function setDisplayPs( value ) {
+      const ps = document.getElementsByTagName("p");
+      for( var i = 1; i < ps.length; i++ ) {
+	  var p = ps[i];
+	  p.style.display = value;
+      }
+  }
+
+  function showAltMessage() {
+      console.log( "Hmm, you won't contribute, OK" );
+  }
+
+  TeddyHyde.onDecline( function() {
+      showAltMessage();
+      console.log( "Hey, we declined to pay!!!" );
+  });
+
+  TeddyHyde.onContribution( function() {
+      revealContent();
+  });
+
+  TeddyHyde.onLoadFailed( function() {
+      console.log( "Failed to load it!!!" );
+  });
+			
   </script>
   
   <div class="date">
