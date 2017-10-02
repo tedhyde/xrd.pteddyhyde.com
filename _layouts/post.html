@@ -31,16 +31,16 @@ layout: default
       console.log( "Hmm, you won't contribute, OK" );
   }
 
-  TeddyHyde.onDecline( function() {
+  TeddyHydeClient.onDecline( function() {
       showAltMessage();
       console.log( "Hey, we declined to pay!!!" );
   });
 
-  TeddyHyde.onContribution( function() {
+  TeddyHydeClient.onContribution( function() {
       revealContent();
   });
 
-  TeddyHyde.onLoadFailed( function() {
+  TeddyHydeClient.onLoadFailed( function() {
       console.log( "Failed to load it!!!" );
   });
 			
