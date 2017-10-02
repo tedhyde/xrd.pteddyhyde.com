@@ -30,7 +30,7 @@ function updateSubscriptionOnServer(subscription) {
 
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').then(function(reg) {
+    navigator.serviceWorker.register('/sw.js').then(function(reg) {
 	console.log('Service Worker Registered!', reg);
 	
 	reg.pushManager.getSubscription().then(function(subscription) {
