@@ -20,16 +20,8 @@ layout: default
   <script>
     
   function revealContent(){
-      setDisplayPs( "inline-block" );
-      document.getElementById("th").style.display = "none";
-  }
-
-  function setDisplayPs( value ) {
-      const ps = document.getElementsByTagName("p");
-      for( var i = 1; i < ps.length; i++ ) {
-	  var p = ps[i];
-	  p.style.display = value;
-      }
+      document.getElementById("excerpt").style.display = "none";
+      document.getElementById("full").style.display = "inline-block";
   }
 
   function showAltMessage() {
