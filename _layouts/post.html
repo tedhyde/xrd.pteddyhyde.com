@@ -5,9 +5,14 @@ layout: default
 <article class="post">
   <h1>{{ page.title }}</h1>
 
-  <div class="entry">
+  <div class="excerpt">
+    {{ page.excerpt }}
+</div>
+
+  <div class="full">
+    <h1>This is the entire thing</h1>
     {{ content }}
-  </div>
+</div>
 
   <iframe height="400" width="100%" frameborder="0" id="th" src="https://www.teddyhyde.com/contribution/xrd.teddyhyde.io"></iframe>
   <script src="https://cdn.teddyhyde.com/0.0.1/teddyhyde-client-0.0.1.js"></script>
