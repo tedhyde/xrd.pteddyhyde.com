@@ -1,0 +1,29 @@
+.teddyhyde {
+    p {
+	display: none;
+    }
+
+    p:nth-child(1) {
+	display: inline-block !important;
+    }
+
+    h1 {
+	display: none;
+    }
+
+    h1:nth-child(1) {
+	display: inline-block !important;
+    }
+
+    pre {
+	display: none;
+    }
+
+    pre:nth-child(1) {
+	display: inline-block !important;
+    }
+
+    code {
+	display: none;
+    }
+}
