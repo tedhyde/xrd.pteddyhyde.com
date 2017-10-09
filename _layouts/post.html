@@ -5,11 +5,11 @@ layout: default
 <article class="post">
   <h1>{{ page.title }}</h1>
 
-  <div class="excerpt">
+  <div id="excerpt">
     {{ page.excerpt }}
 </div>
 
-  <div class="full">
+  <div id="full">
     <h1>This is the entire thing</h1>
     {{ content }}
 </div>
@@ -34,9 +34,9 @@ function revealContent(){
       console.log( "Hey, we declined to pay!!!" );
   });
 
-TeddyHydeClient.onContribution( function() {
+  TeddyHydeClient.onContribution( function() {
     console.log( "Got a contribution" );
-      revealContent();
+    revealContent();
   });
 
   TeddyHydeClient.onLoadFailed( function() {
