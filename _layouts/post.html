@@ -19,7 +19,8 @@ layout: default
 
   <script>
     
-  function revealContent(){
+function revealContent(){
+    console.log( "Inside reveal content" );
       document.getElementById("excerpt").style.display = "none";
       document.getElementById("full").style.display = "inline-block";
   }
@@ -33,7 +34,8 @@ layout: default
       console.log( "Hey, we declined to pay!!!" );
   });
 
-  TeddyHydeClient.onContribution( function() {
+TeddyHydeClient.onContribution( function() {
+    console.log( "Got a contribution" );
       revealContent();
   });
 
