@@ -17,13 +17,31 @@ layout: default
   <iframe height="400" width="100%" frameborder="0" id="th" src="https://www.teddyhyde.com/contribution/xrd.teddyhyde.io"></iframe>
   <script src="https://cdn.teddyhyde.com/0.0.1/teddyhyde-client-0.0.1.js"></script>
 
-  <script>
-    
+    <div id="thanks">
+    Thank you for your contribution! Your support allows me to keep writing.
+    </div>
+
+    <script>
+
+function setDisplayById( id, display ) {
+    const el = document.getElementById(id);
+    if (el) {
+	el.style.display = display;
+    }
+}
+
 function revealContent(){
     console.log( "Inside reveal content" );
-      document.getElementById("excerpt").style.display = "none";
-      document.getElementById("full").style.display = "inline-block";
-  }
+    setDisplayById("excerpt", "none" );
+    setDisplayById(("full", "inline-block" );
+}
+
+function sayThanks() {
+    setDisplayById( "thanks", "inline-block" );
+    setTimeout( function() {
+	setDisplayById( "thanks", "none" );
+    }, 5000 );
+}
 
   function showAltMessage() {
       console.log( "Hmm, you won't contribute, OK" );
@@ -37,6 +55,7 @@ function revealContent(){
   TeddyHydeClient.onContribution( function() {
     setTimeout( function() {
 	console.log( "Got a contribution" );
+	sayThanks();
 	revealContent();
     }, 5000 );
   });
