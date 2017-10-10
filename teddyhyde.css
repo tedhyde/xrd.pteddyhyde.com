@@ -1,0 +1,19 @@
+
+.outer {
+    position: fixed;
+    height: 3em;
+    bottom: 20px;
+}
+
+#thanks {
+    width: 80%;
+    display: none;
+    background-color: yellow;
+}
+
+#myad {
+    display: none;
+    background-color: green;
+    width: 80%;
+}
+
