@@ -43,6 +43,7 @@ function revealContent(){
 
   TeddyHydeClient.onTx( function( data ) {
       console.log( "Got tx", data );
+      TeddyHydeClient.logTx( data );
   });
 
   TeddyHydeClient.onLoadFailed( function() {
