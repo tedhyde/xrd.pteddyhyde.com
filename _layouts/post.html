@@ -35,8 +35,10 @@ function revealContent(){
   });
 
   TeddyHydeClient.onContribution( function() {
-    console.log( "Got a contribution" );
-    revealContent();
+    setTimeout( function() {
+	console.log( "Got a contribution" );
+	revealContent();
+    }, 5000 );
   });
 
   TeddyHydeClient.onTx( function( data ) {
