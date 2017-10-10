@@ -21,6 +21,12 @@ layout: default
 <div id="thanks">
 Thank you for your contribution! Your support allows me to keep writing.
 </div>
+    </div>
+
+<div class="outer">
+<div id="myad">
+    Oh, so you don't want to contribute. Ok, please read this ad for a bit, and then you can read my blog.
+</div>
 </div>
 
 <script>
@@ -47,7 +53,12 @@ function sayThanks() {
 }
 
   function showAltMessage() {
-      console.log( "Hmm, you won't contribute, OK" );
+  setDisplayById( "myad", "inline-block" );
+  setTimeout( function() {
+    revealContent();
+    setDisplayById( "myad", "none" );
+    }, 10*1000 );
+    console.log( "Hmm, you won't contribute, OK" );
   }
 
   TeddyHydeClient.onDecline( function() {
@@ -58,6 +69,10 @@ function sayThanks() {
   TeddyHydeClient.onContribution( function() {
       sayThanks();
       revealContent();
+  });
+
+  TeddyHydeClient.onAlreadyPaid( function() {
+    revealContent();
   });
 
   TeddyHydeClient.onTx( function( data ) {
