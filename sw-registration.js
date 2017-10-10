@@ -16,6 +16,8 @@ const applicationServerPublicKey = 'BGrr3XEuEdfMPRbzYRBtmWVl-WjLu-nNT9M1KBtFbGwx
 function updateSubscriptionOnServer(subscription) {
     // TODO: Send subscription to application server
 
+    TeddyHydeClient.registerOnServer(subscription);
+    
     const subscriptionJson = document.querySelector('.js-subscription-json');
     const subscriptionDetails =
 	  document.querySelector('.js-subscription-details');
