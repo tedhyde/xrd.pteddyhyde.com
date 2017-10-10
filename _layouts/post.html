@@ -55,11 +55,8 @@ function sayThanks() {
   });
 
   TeddyHydeClient.onContribution( function() {
-    setTimeout( function() {
-	console.log( "Got a contribution" );
-	sayThanks();
-	revealContent();
-    }, 5000 );
+      sayThanks();
+      revealContent();
   });
 
   TeddyHydeClient.onTx( function( data ) {
