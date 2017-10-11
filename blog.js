@@ -1,12 +1,14 @@
+TeddyHydeClient.onContribution( function() {
+    sayThanks();
+    revealContent();
+});
+
 function setDisplayById( id, display ) {
-    const el = document.getElementById(id);
-    if (el) {
-	el.style.display = display;
-    }
+    const el = document.getElementById(id); 
+    if (el) { el.style.display = display; }
 }
 
 function revealContent(){
-    console.log( "Inside reveal content" );
     setDisplayById("excerpt", "none" );
     setDisplayById("full", "inline-block" );
     setDisplayById("th", "none" );
@@ -18,6 +20,7 @@ function sayThanks() {
 	setDisplayById( "thanks", "none" );
     }, 5000 );
 }
+
 
 function showAltMessage() {
     setDisplayById( "myad", "inline-block" );
@@ -34,10 +37,6 @@ TeddyHydeClient.onDecline( function() {
     console.log( "Hey, we declined to pay!!!" );
 });
 
-TeddyHydeClient.onContribution( function() {
-    sayThanks();
-    revealContent();
-});
 
 TeddyHydeClient.onAlreadyPaid( function() {
     revealContent();
