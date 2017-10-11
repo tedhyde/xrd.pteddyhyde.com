@@ -4,7 +4,7 @@ category:
 title: "some long and winding technical discussion"
 tagline: 
 tags : [] 
-published: true
+published: false
 ---
 
 lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. lots of text and moments here. 
