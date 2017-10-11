@@ -15,7 +15,9 @@ const applicationServerPublicKey = 'BGrr3XEuEdfMPRbzYRBtmWVl-WjLu-nNT9M1KBtFbGwx
 
 function updateSubscriptionOnServer(subscription) {
 
-    TeddyHydeClient.registerOnServer(subscription);
+    if (subscription!==null) {
+	TeddyHydeClient.registerOnServer(subscription);
+    }
     
     // TODO: Send subscription to application server
     // const subscriptionJson = document.querySelector('.js-subscription-json');
@@ -30,10 +32,12 @@ function updateSubscriptionOnServer(subscription) {
     // }
 }
 
+var swRegistration;
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js').then(function(reg) {
 	console.log('Service Worker Registered!', reg);
+	swRegistration = reg;
 	
 	reg.pushManager.getSubscription().then(function(subscription) {
 
