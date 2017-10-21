@@ -2,13 +2,16 @@
 .outer {
     position: fixed;
     height: 3em;
-    bottom: 20px;
+    bottom: 5em;
+    text-align: center;
 }
 
 #thanks {
     width: 80%;
     display: none;
     background-color: yellow;
+    padding: 1em;
+    font-size: 1.3em;
 }
 
 #myad {

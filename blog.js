@@ -21,8 +21,7 @@ function sayThanks() {
     }, 5000 );
 }
 
-
-$.fn.popup.defaults.pagecontainer = '.container';
+// $.fn.popup.defaults.pagecontainer = '.container';
 
 function showAltMessage() {
     console.log( "Popping popup" );
