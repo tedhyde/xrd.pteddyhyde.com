@@ -23,6 +23,7 @@ function sayThanks() {
 
 
 function showAltMessage() {
+    console.log( "Popping popup" );
     $('#personal_ad_popup').popup(
 	{ escape: false,
 	  blur: false
@@ -30,6 +31,7 @@ function showAltMessage() {
     );
 
     setTimeout( function()  {
+	console.log( "Hiding popup" );
 	$('#personal_ad_popup').popup('hide');
     }, 10*1000 );
 	
