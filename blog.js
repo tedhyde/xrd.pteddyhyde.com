@@ -23,13 +23,23 @@ function sayThanks() {
 
 
 function showAltMessage() {
-    setDisplayById( "myad", "inline-block" );
-    setDisplayById("th", "none" );
-    setTimeout( function() {
-	revealContent();
-	setDisplayById( "myad", "none" );
+    $('#personal_ad_popup').popup(
+	{ escape: false,
+	  blur: false
+	}
+    );
+
+    setTimeout( function()  {
+	$('#personal_ad_popup').popup('hide');
     }, 10*1000 );
-    console.log( "Hmm, you won't contribute, OK" );
+	
+    // setDisplayById( "myad", "inline-block" );
+    // setDisplayById("th", "none" );
+    // setTimeout( function() {
+    // 	revealContent();
+    // 	setDisplayById( "myad", "none" );
+    // }, 10*1000 );
+    // console.log( "Hmm, you won't contribute, OK" );
 }
 
 TeddyHydeClient.onDecline( function() {
