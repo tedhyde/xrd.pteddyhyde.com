@@ -22,26 +22,32 @@ function sayThanks() {
 }
 
 
-function showAltMessage() {
-    // console.log( "Popping popup" );
-    // $('#personal_ad_popup').popup(
-    // 	{ escape: false,
-    // 	  blur: false
-    // 	}
-    // );
+$.fn.popup.defaults.pagecontainer = '.container';
 
-    // setTimeout( function()  {
-    // 	console.log( "Hiding popup" );
-    // 	$('#personal_ad_popup').popup('hide');
+function showAltMessage() {
+    console.log( "Popping popup" );
+    $('#personal_ad_popup').popup(
+	{
+	    color: 'white',
+	    opacity: 1,
+	    transition: '0.3s',
+	    scrolllock: true
+	}
+    ).popup('show');
+
+    setTimeout( function()  {
+    	console.log( "Hiding popup" );
+    	$('#personal_ad_popup').popup('hide');
+	setTimeout( revealContent, 1000 );
+    }, 15*1000 );
+ 	
+    // setDisplayById( "myad", "inline-block" );
+    // setDisplayById("th", "none" );
+    // setTimeout( function() {
+    // 	revealContent();
+    // 	setDisplayById( "myad", "none" );
     // }, 10*1000 );
-	
-    setDisplayById( "myad", "inline-block" );
-    setDisplayById("th", "none" );
-    setTimeout( function() {
-    	revealContent();
-    	setDisplayById( "myad", "none" );
-    }, 10*1000 );
-    console.log( "Hmm, you won't contribute, OK" );
+    // console.log( "Hmm, you won't contribute, OK" );
 }
 
 TeddyHydeClient.onDecline( function() {
