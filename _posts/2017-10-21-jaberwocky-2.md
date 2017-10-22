@@ -4,7 +4,7 @@ category:
 title: "jaberwocky 2"
 tagline: 
 tags : [] 
-published: false
+published: true
 ---
 
 # Jabberwocky
