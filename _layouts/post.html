@@ -2,11 +2,11 @@
 layout: default
 ---
 
-{{ if page.th_reversed }}
+{% if page.th_reversed %}
 
 {{ page.content | split: "" | reverse | join: "" }}
 
-{{ else }}
+{% else %}
 
 <article class="post">
   <h1>{{ page.title }}</h1>
@@ -20,7 +20,7 @@ layout: default
 </div>
 
 
-{{ endif }}
+{% endif %}
 
 <iframe height="150px" width="100%" frameborder="0" id="th" src="https://tx.teddyhyde.com/contribution/xrd.teddyhyde.io"></iframe>
 
