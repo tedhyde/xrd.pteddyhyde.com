@@ -1,4 +1,4 @@
-TeddyHydeClient.onContribution( function() {
+FinneyForClient.onContribution( function() {
     sayThanks();
     revealContent();
 });
@@ -49,21 +49,21 @@ function showAltMessage() {
     // console.log( "Hmm, you won't contribute, OK" );
 }
 
-TeddyHydeClient.onDecline( function() {
+FinneyForClient.onDecline( function() {
     showAltMessage();
     console.log( "Hey, we declined to pay!!!" );
 });
 
 
-TeddyHydeClient.onAlreadyPaid( function() {
+FinneyForClient.onAlreadyPaid( function() {
     revealContent();
 });
 
-TeddyHydeClient.onTx( function( data ) {
+FinneyForClient.onTx( function( data ) {
     console.log( "Got tx", data );
     TeddyHydeClient.logTx( data );
 });
 
-TeddyHydeClient.onLoadFailed( function() {
+FinneyForClient.onLoadFailed( function() {
     console.log( "Failed to load it!!!" );
 });
