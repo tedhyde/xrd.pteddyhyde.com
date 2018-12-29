@@ -61,7 +61,7 @@ FinneyForClient.onAlreadyPaid( function() {
 
 FinneyForClient.onTx( function( data ) {
     console.log( "Got tx", data );
-    TeddyHydeClient.logTx( data );
+    FinneyForClient.logTx( data );
 });
 
 FinneyForClient.onLoadFailed( function() {
